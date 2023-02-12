@@ -1,0 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: linear-gradient(
+    45deg,
+    #f22613,
+    #f89406,
+    #26a65b,
+    #5868ec,
+    #f54e80,
+    #f7ca18,
+    #d2527f
+  );
+  background-size: 500% 500%;
+  -webkit-animation: ignielGradient 12s ease infinite;
+  -moz-animation: ignielGradient 12s ease infinite;
+  animation: ignielGradient 12s ease infinite;
+}
+@-webkit-keyframes ignielGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-moz-keyframes ignielGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes ignielGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+img {
+  box-shadow: 0px 5px 15px;
+}
+.flip {
+  box-shadow: 0 0 10px rgba(128, 128, 128, 0.5);
+  padding: 1em;
+  width: 220px;
+  height: 497px;
+  transform-style: preserve-3d;
+  transition: 3s ease;
+  margin-left: 500px;
+  margin-top: 60px;
+}
+
+.flip:hover {
+  transform: rotateY(180deg);
+}
+.flip .content {
+  transform-style: preserve-3d;
+}
+
+.flip .back,
+.flip .front {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.flip .back {
+  transform: rotateY(180deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.flip img,
+.flip p {
+  transform: translateZ(90px);
+  text-shadow: 0 0 3px black;
+  text-align: center;
+}
+
+.flip p {
+  font-size: 1em;
+  color: #eee;
+}
+
+.flip::before,
+.flip::after {
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  background-image: linear-gradient(purple, rgba(255, 0, 0, 0.72));
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: rotateY(180deg) translateZ(1px);
+}
+
+.flip::before {
+  transform: none;
+  background-image: linear-gradient(to right, #72e65d 0%, #dac069 100%);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
